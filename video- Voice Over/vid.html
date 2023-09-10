@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Voice over </title>
+    <link rel="stylesheet" href="./vid.css">
+</head>
+<body>
+    
+    <div class="container">
+        <video src="./videos/last .mp4" class="slider" autoplay loop muted controls></video>
+
+        <ul>
+            <li onclick="videoslider('./videos/last .mp4')"><video src="./videos/last .mp4"></video></li>
+            <li onclick="videoslider('./videos/result.mp4')"><video src="./videos/result.mp4"></video></li>
+            <li onclick="videoslider('./videos/Untitled.mp4')"><video src="./videos/Untitled.mp4"></video></li>
+        </ul>
+    </div>
+
+
+    <script>
+
+        function videoslider(links){
+            document.querySelector(".slider").src = links;
+        }
+
+    </script>
+
+</body>
+</html>
