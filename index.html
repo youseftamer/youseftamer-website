@@ -1,215 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.8/typed.min.js"></script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Take Energy</title>
+		<link rel="stylesheet" href="styles.css" />
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+	</head>
+	<body class="loader-wrapper">
+		<audio id="song">
+			<source src="y2mate.com - Hamada Helal  El Nagah Ahla HedeyaOfficial Video  حماده هلال  النجاح أحلي هدية   الكليب الرسمي.mp3">
+		</audio>
+		<div class="content">
+		  </div>
+		  <div class="loader-wrapper">
+			<span class="loader"><span class="loader-inner"></span></span>
+		  </div>
+	<div id="spinner">
+	  <a href="website/index.html"></a>
+	</div>
+	<div id="progress">
+	  <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+		<span class="progress-text">جارٍ التحميل...</span>
+	  </div>
+	</div>
+		<div class="container">
+			<h1 class="header">
+				<p> welcome </p>
+			</h1>
 
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Personal Portfolio Website Design </title>
+			<div class="titles">
+				<div class="titletitle-1"><h1>There's</h1></div>
+				<div class="titletitle-2"><h1>NO</h1></div>
+				<div class="titletitle-3"><h1>Limit</h1></div>
+			</div>
+			<ul class="blocks">
+				<li class="block-1 block"></li>
+				<li class="block-2 block"></li>
+				<li class="block-3 block"></li>
+				<li class="block-4 block"></li>
+				<li class="block-5 block"></li>
+				<li class="block-6 block"></li>
+			</ul>
+		</div>
+		<script>
+			    // تحميل ملف الموسيقى
+				var audio = new Audio("Untitled.mp3");
 
-    <!-- box icons -->
-    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+// تشغيل الموسيقى في الخلفية
+audio.play();
+audio.loop = false;
+		</script>
+		
+		<script>
+var spinner = document.getElementById("spinner");
+    var progress = document.getElementById("progress");
+    var progressBar = progress.querySelector(".progress-bar");
+    var progressText = progress.querySelector(".progress-text");
 
-    <!-- custom css -->
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
+    // ابدأ تشغيل عداد التقدم
+    var counter = 0;
+    var interval = setInterval(function() {
+      counter++;
+      progressBar.style.width = counter + "%";
+      progressText.textContent = counter + "%";
 
-  <body>
-    <!-- header design -->
-    <header class="header">
-      <a href="#" class="logo"> portflio </a>
-      <i class='bx bx-menu' id="menu-icon"></i>
-      <nav class="navbar">
-        <a href="#Home" class="active">Home</a>
-        <a href="#about" >about</a>
-        <a href="#services" >services</a>
-        <a href="#portfolio" >portflio</a>
-        <a href="#contact" >contact</a>
+      // تحقق مما إذا كان تحميل الصفحة قد اكتمل
+      if (counter >= 100) {
+        clearInterval(interval);
+        spinner.style.display = "none";
+        // انتظر 5 ثوانٍ قبل الانتقال إلى الصفحة الرئيسية
+        setTimeout(function() {
+          window.location.href = "website/index.html";
+        }, 300);
+      }
+    }, 100);
 
-      </nav>
-    </header>
+			TweenMax.staggerFrom(
+				".titles > div",
+				0.8,
+				{
+					x: "-60",
+					ease: Power3.easeInOut,
+					opacity: "0",
+				},
+				2
+			);
 
+			TweenMax.staggerTo(
+				".titles > div",
+				0.8,
+				{
+					x: "60",
+					ease: Power3.easeInOut,
+					delay: 1.2,
+					opacity: "0",
+				},
+				2
+			);
+			TweenMax.staggerFrom(
+				"li",
+				3,
+				{
+					x: "-1600",
+					delay: 4.2,
+					ease: Expo.easeInOut,
+				},
+				0.16
+			);
 
-    <!-- home section design -->
-    <section class="home" id="home">
-      <div class="home-content">
-        <h3>Hello it's me</h3>
-        <h1> yousef tamer</h1>
-        <h3>and i'm a <span id="typed"></span></h3>
-        <script>
-          // Create a typed instance
-          var typed = new Typed("#typed", {
-            // Typed text
-            strings: ["Voice Over","Montage","Frontend Devolper"],
-            // Type speed
-            typeSpeed: 30,
-            backDelay: 1000,
-            backSpeed: 100,
-            // Delay before typing starts
-            delaySpeed: 1000,
-            // Loop the typed text
-            loop: true,
-          });
-        </script>
-        <p>lorem lsa hn3rf ay da Re, Norway, a former municipality in Vestfold county, Norway
-          Re, Vestland, a village in Gloppen municipality, Vestland county, Norway
-          Re, Piedmont, an Italian municipality
-          Île de Ré, an island off the west coast of France
-          Le Bois-Plage-en-Ré, a commune on that island
-          Re di Anfo, a torrent (seasonal stream) in Italy
-          Re di Gianico, Re di Niardo, Re di Sellero, and Re di Tredenus, torrents in the Val Camonica
-          Réunion (ISO 3166-1 code), a French overseas department and island in the Indian Ocean </p>
-        <div class="social-media">
-          <a href="https://www.facebook.com/profile.php?id=100095399507970" target="_blank"><i class='bx bxl-facebook' ></i></a>
-          <a href="https://www.instagram.com/youseftamer157/?hl=ar" target="_blank"><i class='bx bxl-instagram' ></i></a>
-          <a href="https://www.tiktok.com/@yousef.tamer74" target="_blank" ><i class='bx bxl-tiktok'></i></a>
-          <a href="https://wa.me/1090952790?text=%D9%85%D8%AD%D8%AA%D8%A7%D8%AC%20%D9%85%D8%B3%D8%A7%D8%B9%D8%AF%D9%87" target="_blank"><i class='bx bxl-whatsapp' ></i></a>  
-        </div>
-        <a href="" class="btn" target="_blank">download cv</a>
-      </div>
-      <div class="home-img">
-        <img src="images/Picsart_23-09-08_21-51-49-926.png" alt="">
-      </div>
-    </section> 
+			TweenMax.staggerTo(
+				"li",
+				2.6,
+				{
+					x: "1600",
+					delay: 6.8,
+					ease: Expo.easeInOut,
+				},
+				0.2
+			);
 
-    <!-- about section design -->
-    <section class="about" id="about">
-      <div class="about-img">
-        <img src="images/Picsart_23-09-08_21-51-49-926.png" alt="">
-      </div>
-      <div class="about-content">
-        <h2 class="heading"> about <span>me</span></h2>
-      <h3> voice over</h3>
-      <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus laboriosam voluptatum aperiam corrupti dolor unde, iure sed nobis quisquam, explicabo saepe numquam? Voluptate magni exercitationem saepe libero! Adipisci quas laborum, nemo nulla tempore repudiandae consectetur velit dolorem modi perferendis reprehenderit commodi quibusdam ut at iusto corrupti hic laboriosam? Quos minus, dolorum natus necessitatibus deserunt doloremque esse odit voluptates incidunt reprehenderit eum cumque nostrum iste.</p>
-      <a href="#" class="btn">Read More</a>
-      </div>
-    </section>
+			var textWrapper = document.querySelector(".header");
+			textWrapper.innerHTML = textWrapper.textContent.replace(
+				/\S/g,
+				"<span class='letter'>$&</span>"
+			);
 
-    <!-- services section design -->
-    <section class="services" id="services">
-      <h2 class="heading">our <span>services</span> </h2>
-      <div class="services-container">
-        <div class="services-box">
-          <i class='bx bxs-microphone-alt' ></i>
-          <h3> Voice Over</h3>
-          <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illo voluptate distinctio nam, esse culpa reprehenderit accusamus vel? Vitae, aliquid?</p>
-          <a href="#" class="btn">Read More</a>
-        </div>
-
-        
-          <div class="services-box">
-            <i class='bx bx-video'></i>
-            <h3> Montage </h3>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illo voluptate distinctio nam, esse culpa reprehenderit accusamus vel? Vitae, aliquid?</p>
-            <a href="#" class="btn">Read More</a>
-          </div>
-         
-            <div class="services-box">
-              <i class='bx bxs-paint' ></i>
-                 <h3> Graphic Design</h3>
-              <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit illo voluptate distinctio nam, esse culpa reprehenderit accusamus vel? Vitae, aliquid?</p>
-              <a href="#" class="btn">Read More</a>
-            </div>
-      </div>
-    </section>
-
-
-    <!-- portfolio section design -->
-    <section class="portfolio" id="portfolio">
-      <h2 class="heading"> Latest <span> Project</span></h2>
-      
-      <div class="portfolio-container">
-        <div class="portfolio-box">
-          <img src="images/portfolio1.jpg" alt="">
-          <div class="portfolio-layer">
-            <h4> Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, blanditiis.</p>
-             <a href="#"><i class='bx bx-link-external' ></i></a>
-          </div>
-        </div>
-        <div class="portfolio-box">
-          <img src="images/portfolio2.jpg" alt="">
-          <div class="portfolio-layer">
-            <h4> Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, blanditiis.</p>
-             <a href="#"><i class='bx bx-link-external' ></i></a>
-          </div>
-        </div>
-        <div class="portfolio-box">
-          <img src="images/portfolio3.jpg" alt="">
-          <div class="portfolio-layer">
-            <h4> Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, blanditiis.</p>
-             <a href="#"><i class='bx bx-link-external' ></i></a>
-          </div>
-        </div>
-        <div class="portfolio-box">
-          <img src="images/portfolio4.jpg" alt="">
-          <div class="portfolio-layer">
-            <h4> Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, blanditiis.</p>
-             <a href="#"><i class='bx bx-link-external' ></i></a>
-          </div>
-        </div>
-        <div class="portfolio-box">
-          <img src="images/portfolio5.jpg" alt="">
-          <div class="portfolio-layer">
-            <h4> Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, blanditiis.</p>
-             <a href="#"><i class='bx bx-link-external' ></i></a>
-          </div>
-        </div>
-        <div class="portfolio-box">
-          <img src="images/portfolio6.jpg" alt="">
-          <div class="portfolio-layer">
-            <h4> Web Design</h4>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, blanditiis.</p>
-             <a href="#"><i class='bx bx-link-external' ></i></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- contact section design -->
-    <section class="cotact" id="contact">
-      <h2 class="hading">Contact <span>Me!</span></h2>
-      <form action="#">
-        <div class="input-box">
-          <input type="text" placeholder="Full Name">
-          <input type="email" placeholder="Email Address">
-        </div>
-
-        <div class="input-box">
-          <input type="number" placeholder="Mobile Numper">
-          <input type="text" placeholder="Email Subject">
-        </div>
-        <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-        <input type="submit" value="Send Message" class="btn">
-
-
-      </form>
-    </section>
-
-    <!-- footer design -->
-    <footer class="footer">
-      <div class="footer-text">
-        <p>Copyright &copy; 2023 by Yousef Tamer｜All Right Reserved</p>
-      </div>
-      
-      <div class="footer-icontop">
-        <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
-      </div>  
-    </footer>
-
-
-    <!-- scroll reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-
-    <!-- typed js -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-    <!-- custom js -->
-    <script src="js/script.js"></script>
-  </body>
+			anime.timeline().add({
+				targets: ".header .letter",
+				opacity: [0, 1],
+				translateY: [80, 0],
+				translateZ: 0,
+				easing: "easeOutExpo",
+				duration: 2000,
+				delay: (el, i) => 8400 + 40 * i,
+			});
+		</script>
+	</body>
 </html>
